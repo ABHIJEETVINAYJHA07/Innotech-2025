@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDHAAR SETU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom font for a more friendly feel */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+      body {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden; /* Prevent horizontal scroll from aurora */
+      }
+      .aurora-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+      }
+      .aurora-bg .aurora-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.5;
+      }
+      .aurora-bg .aurora-blob:nth-child(1) {
+        width: 500px;
+        height: 500px;
+        background: #ffbe98; /* Peach */
+        top: -150px;
+        left: -200px;
+        animation: move-blob-1 15s infinite alternate;
+      }
+      .aurora-bg .aurora-blob:nth-child(2) {
+        width: 400px;
+        height: 400px;
+        background: #a9d6e5; /* Sky Blue */
+        bottom: -100px;
+        right: -150px;
+        animation: move-blob-2 18s infinite alternate;
+      }
+      .aurora-bg .aurora-blob:nth-child(3) {
+        width: 300px;
+        height: 300px;
+        background: #f2c5f2; /* Lavender */
+        bottom: 50px;
+        left: -100px;
+        animation: move-blob-3 12s infinite alternate;
+      }
+
+      @keyframes move-blob-1 {
+        from { transform: translate(-20px, 50px) rotate(-30deg); }
+        to { transform: translate(30px, -40px) rotate(40deg); }
+      }
+      @keyframes move-blob-2 {
+        from { transform: translate(-50px, -50px) rotate(20deg); }
+        to { transform: translate(50px, 50px) rotate(-20deg); }
+      }
+      @keyframes move-blob-3 {
+        from { transform: translate(40px, -30px) rotate(50deg); }
+        to { transform: translate(-40px, 30px) rotate(-50deg); }
+      }
+      /* Shake animation for form validation */
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+      .form-shake {
+        animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      /* Animation for dashboard grid items */
+      @keyframes grid-item-in {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .animate-grid-item-in {
+        animation: grid-item-in 0.5s ease-out forwards;
+        opacity: 0; /* Start hidden */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-stone-100 text-slate-700">
+    <div class="aurora-bg">
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
